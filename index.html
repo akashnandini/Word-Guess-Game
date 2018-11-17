@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+        <meta charset="UTF-8">
+        <title>Word Guess Game</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    </head>
+
+    <body>
+           <div clas="container">
+               <div class="jumbotron">
+                   <h2 class="text-center">Word Guess Game</h3>
+               </div>
+               <div class="row">
+                    <div class="col-sm-12">
+                        <h3 class="text-center">Press any key to get started!</h3>
+                    </div>
+               </div>    
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <h2 class="text-center">Wins:<span id="wins"></span></h2>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <h2 class="text-center">Losses:<span id="losses"></span></h2>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <h2 class="text-center">Fills like:<span id="placeholder">---</span></h2>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <h2 class="text-center">Number of Guesses Remaining:<span id="guesses_left"></span></h2>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <h2 class="text-center">Incorrect Guessed:<span id="incorrect_guessed"></span></h2>
+                        </div>
+                    </div>
+               </div>
+               <div class="row">
+                    <p class="col-md-12" id="game"></p>
+               </div>
+
+           </div>
+    <script src="assets/javascript/game.js"></script>        
+    </body>
+</html>
