@@ -1,9 +1,9 @@
 //window.onload = function(){
 //DOM elements
 var wins_dom = document.getElementById("wins");
-var losses_dom = document.getElementById("loss");
+var losses_dom = document.getElementById("losses");
 var placeholder_dom = document.getElementById("placeholder");
-var guesses_left_dom = document.getElementById("guess_left");
+var guesses_left_dom = document.getElementById("guesses_left");
 var incorrect_guessed_dom = document.getElementById("incorrect_guessed");
 
 //create variables
@@ -86,7 +86,7 @@ function incorrect(letter){
     
     guesses_left--;
     incorrect_letter_group.push(letter);
-    //guesses_left_dom.textContent=guesses_left;
+    guesses_left_dom.textContent=guesses_left;
    // console.log("incorrect_letter_group "+incorrect_letter_group);
     console.log("guesses_left "+guesses_left);
     incorrect_guessed_dom.textContent=incorrect_letter_group;   
@@ -100,7 +100,7 @@ function loss(){
   if(guesses_left===0){
     losses++;
     gameRunning=false;
-    //losses_dom.textContent=losses;
+    losses_dom.textContent=losses;
     console.log("losses "+losses);
   }
   win();
