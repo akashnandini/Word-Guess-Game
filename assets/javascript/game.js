@@ -10,7 +10,6 @@ var image_guessed_dom = document.getElementById("image_guessed");
 //create variables
 var person = {firstName:"John", lastName:"Doe", age:46};
 var word_arr=["Moana","Zootopia","Sing","Trolls"];
-//var word_arr={"Moana":"assets/images/Moana.jpg","Zootopia":"assets/images/zootopia.jpg","Sing":"assets/images/sing.png","Trolls":"assets/images/trolls.jpg"};
 var wins=0;
 var losses=0;
 var guesses_left=10;
@@ -50,7 +49,6 @@ function newGame(){
 
     pickedword=word_arr[Math.floor(Math.random() * word_arr.length)];
     console.log(pickedword);
-    //image_guessed = "assets/images/"+pickedword+".jpg";
     image_guessed_dom.setAttribute("src","assets/images/"+pickedword.toLowerCase()+".jpg");
 
 
@@ -80,8 +78,6 @@ function letter_guess(letter){
     }
    
     placeholder_dom.textContent=pickedwordPlaceholderArr.join('');
-    //image_guessed_dom.textContent=image_guessed;
-    //x.setAttribute("src", "assets/images/start ice cream game.jpg");
     image_guessed_dom.setAttribute("src","assets/images/"+pickedword.toLowerCase()+".jpg");
     
     incorrect(letter);
@@ -111,7 +107,7 @@ function incorrect(letter){
     guesses_left--;
     incorrect_letter_group.push(letter);
     guesses_left_dom.textContent=guesses_left;
-   // console.log("incorrect_letter_group "+incorrect_letter_group);
+   
     console.log("guesses_left "+guesses_left);
     incorrect_guessed_dom.textContent=incorrect_letter_group;   
     
@@ -145,14 +141,15 @@ function win(){
 
 
 document.onkeyup = function (event) {
-  //game();
+  
   console.log(event.key);
-  //if(event.keyCode.toLowerCase()>=65 || event.keyCode.toLowerCase()<=90){
+  console.log("KeyCode"+event.keyCode);
+  if(event.keyCode>=65 && event.keyCode<=90){
   letter_guess(event.key);
-  //}
-  //else{
-  //  alert("Choose any letter but no numbers");
-  //}
+  }
+  else{
+    alert("Choose any letter but no numbers");
+  }
   
 };
 };
