@@ -1,4 +1,4 @@
-//window.onload = function(){
+window.onload = function(){
 //DOM elements
 var wins_dom = document.getElementById("wins");
 var losses_dom = document.getElementById("losses");
@@ -29,7 +29,7 @@ function newGame(){
   incorrect_letter_group=[];
 
   pickedword=word_arr[Math.floor(Math.random() * word_arr.length)];
-  image_guessed_dom.setAttribute("src","assets/images/"+pickedword+".jpg");
+  image_guessed_dom.setAttribute("src","assets/images/"+pickedword.toLowerCase()+".jpg");
 
   console.log("New pick:: "+pickedword);
   for(i=0;i<word_arr.length;i++){
@@ -46,6 +46,8 @@ function newGame(){
   placeholder_dom.textContent=pickedwordPlaceholderArr.join('');
   incorrect_guessed_dom.textContent=incorrect_letter_group; 
 }
+
+
     pickedword=word_arr[Math.floor(Math.random() * word_arr.length)];
     console.log(pickedword);
     //image_guessed = "assets/images/"+pickedword+".jpg";
@@ -61,6 +63,7 @@ function newGame(){
     }
 
     }
+  
 function letter_guess(letter){
   
   if(gameRunning==true &&  guess_letter_group.indexOf(letter)==-1){
@@ -79,14 +82,14 @@ function letter_guess(letter){
     placeholder_dom.textContent=pickedwordPlaceholderArr.join('');
     //image_guessed_dom.textContent=image_guessed;
     //x.setAttribute("src", "assets/images/start ice cream game.jpg");
-    image_guessed_dom.setAttribute("src","assets/images/"+pickedword+".jpg");
+    image_guessed_dom.setAttribute("src","assets/images/"+pickedword.toLowerCase()+".jpg");
     
     incorrect(letter);
     //win();
   }
  else{
     if(!gameRunning){
-      alert("The game is not running");
+      alert("Game over!!");
       var start_new_game = confirm("Do you want to start a new game?");
       if(start_new_game==true){
         newGame();
@@ -118,7 +121,7 @@ function incorrect(letter){
 
 //loss
 function loss(){
-  if(guesses_left===0){
+  if(guesses_left===0 && pickedword!=pickedwordPlaceholderArr.join('')){
     losses++;
     gameRunning=false;
     
@@ -142,7 +145,7 @@ function win(){
 
 
 document.onkeyup = function (event) {
-  //newGame();
+  //game();
   console.log(event.key);
   //if(event.keyCode.toLowerCase()>=65 || event.keyCode.toLowerCase()<=90){
   letter_guess(event.key);
@@ -152,4 +155,4 @@ document.onkeyup = function (event) {
   //}
   
 };
-//};
+};
