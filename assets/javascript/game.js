@@ -8,7 +8,7 @@ var incorrect_guessed_dom = document.getElementById("incorrect_guessed");
 var image_guessed_dom = document.getElementById("image_guessed");
 
 //create variables
-var person = {firstName:"John", lastName:"Doe", age:46};
+
 var word_arr=["Moana","Zootopia","Sing","Trolls"];
 var wins=0;
 var losses=0;
