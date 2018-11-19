@@ -5,10 +5,12 @@ var losses_dom = document.getElementById("losses");
 var placeholder_dom = document.getElementById("placeholder");
 var guesses_left_dom = document.getElementById("guesses_left");
 var incorrect_guessed_dom = document.getElementById("incorrect_guessed");
+var image_guessed_dom = document.getElementById("image_guessed");
 
 //create variables
-
+var person = {firstName:"John", lastName:"Doe", age:46};
 var word_arr=["Moana","Zootopia","Sing","Trolls"];
+//var word_arr={"Moana":"assets/images/Moana.jpg","Zootopia":"assets/images/zootopia.jpg","Sing":"assets/images/sing.png","Trolls":"assets/images/trolls.jpg"};
 var wins=0;
 var losses=0;
 var guesses_left=10;
@@ -17,6 +19,7 @@ var pickedwordPlaceholderArr=[];
 var guess_letter_group=[];
 var incorrect_letter_group=[];
 var gameRunning=true;
+var image_guessed;
 
 function newGame(){
   gameRunning=true;
@@ -26,6 +29,8 @@ function newGame(){
   incorrect_letter_group=[];
 
   pickedword=word_arr[Math.floor(Math.random() * word_arr.length)];
+  image_guessed_dom.setAttribute("src","assets/images/"+pickedword+".jpg");
+
   console.log("New pick:: "+pickedword);
   for(i=0;i<word_arr.length;i++){
     if(pickedword[i]==''){
@@ -43,6 +48,10 @@ function newGame(){
 }
     pickedword=word_arr[Math.floor(Math.random() * word_arr.length)];
     console.log(pickedword);
+    //image_guessed = "assets/images/"+pickedword+".jpg";
+    image_guessed_dom.setAttribute("src","assets/images/"+pickedword+".jpg");
+
+
     for(i=0;i<word_arr.length;i++){
     if(pickedword[i]==''){
       pickedwordPlaceholderArr.push('');
@@ -68,6 +77,9 @@ function letter_guess(letter){
     }
    
     placeholder_dom.textContent=pickedwordPlaceholderArr.join('');
+    //image_guessed_dom.textContent=image_guessed;
+    //x.setAttribute("src", "assets/images/start ice cream game.jpg");
+    image_guessed_dom.setAttribute("src","assets/images/"+pickedword+".jpg");
     
     incorrect(letter);
     //win();
