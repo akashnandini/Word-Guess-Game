@@ -51,7 +51,7 @@ function newGame(){
     pickedword=word_arr[Math.floor(Math.random() * word_arr.length)];
     console.log(pickedword);
     //image_guessed = "assets/images/"+pickedword+".jpg";
-    image_guessed_dom.setAttribute("src","assets/images/"+pickedword+".jpg");
+    image_guessed_dom.setAttribute("src","assets/images/"+pickedword.toLowerCase()+".jpg");
 
 
     for(i=0;i<word_arr.length;i++){
