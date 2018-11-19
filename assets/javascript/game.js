@@ -142,13 +142,12 @@ function win(){
 
 document.onkeyup = function (event) {
   
-  console.log(event.key);
   console.log("KeyCode"+event.keyCode);
   if(event.keyCode>=65 && event.keyCode<=90){
   letter_guess(event.key);
   }
   else{
-    alert("Choose any letter but no numbers");
+    alert("Choose only letters");
   }
   
 };
