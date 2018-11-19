@@ -18,28 +18,29 @@ var guess_letter_group=[];
 var incorrect_letter_group=[];
 var gameRunning=true;
 
-/*function newGame(){
+function newGame(){
   gameRunning=true;
-  guess_left=8;
+  guesses_left=10;
   pickedwordPlaceholderArr=[];
   guess_letter_group=[];
   incorrect_letter_group=[];
 
   pickedword=word_arr[Math.floor(Math.random() * word_arr.length)];
+  console.log("New pick:: "+pickedword);
   for(i=0;i<word_arr.length;i++){
     if(pickedword[i]==''){
-      pickedwordPlaceholderArr.push('');
+      pickedwordPlaceholderArr.push(' ');
     }
     else{
       pickedwordPlaceholderArr.push('_');
     }
 
-  }*/
+  }
     
- /* guess_left.textContent=guess_left;
-  placeholder.textContent=pickedwordPlaceholderArr.join('');
-  already_guessed.textContent=incorrect_letter_group; 
-}*/
+  guesses_left_dom.textContent=guesses_left;
+  placeholder_dom.textContent=pickedwordPlaceholderArr.join('');
+  incorrect_guessed_dom.textContent=incorrect_letter_group; 
+}
     pickedword=word_arr[Math.floor(Math.random() * word_arr.length)];
     console.log(pickedword);
     for(i=0;i<word_arr.length;i++){
@@ -59,9 +60,10 @@ function letter_guess(letter){
     guess_letter_group.push(letter);
     console.log("guess_letter_group " + guess_letter_group);
     for(var i=0;i<pickedword.length;i++){
-      if(pickedword[i].toLowerCase()==letter.toLowerCase()){
+      if(pickedword[i].toLowerCase()===letter.toLowerCase()){
         pickedwordPlaceholderArr[i]=pickedword[i];
         guesses_left--;
+        guesses_left_dom.textContent=guesses_left;
       }
     }
    
@@ -73,6 +75,13 @@ function letter_guess(letter){
  else{
     if(!gameRunning){
       alert("The game is not running");
+      var start_new_game = confirm("Do you want to start a new game?");
+      if(start_new_game==true){
+        newGame();
+      }
+      else{
+        alert("Exit the game");
+      }
     }
     else{
       alert("You have already guessed this letter " +letter);
@@ -100,6 +109,7 @@ function loss(){
   if(guesses_left===0){
     losses++;
     gameRunning=false;
+    
     losses_dom.textContent=losses;
     console.log("losses "+losses);
   }
@@ -112,6 +122,7 @@ function win(){
   if(pickedword==pickedwordPlaceholderArr.join('')){
     wins++;
     gameRunning=false;
+    
     wins_dom.textContent=wins;   
     console.log("wins "+wins);
   }
@@ -120,6 +131,13 @@ function win(){
 
 document.onkeyup = function (event) {
   //newGame();
+  console.log(event.key);
+  //if(event.keyCode.toLowerCase()>=65 || event.keyCode.toLowerCase()<=90){
   letter_guess(event.key);
+  //}
+  //else{
+  //  alert("Choose any letter but no numbers");
+  //}
+  
 };
 //};
